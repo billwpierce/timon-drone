@@ -5,6 +5,7 @@
 //
 
 // MPU-6050 Short Example Sketch
+//http://playground.arduino.cc/Main/MPU-6050#easy
 // By Arduino User JohnChi
 // August 17, 2014
 // Public Domain

@@ -35,5 +35,25 @@ function check for controls:
   motor3 = + changePitch + changeRoll
   motor4 = + changePitch - changeRoll
 
+find error:
+  motor1error = roll-pitch
+  motor2error = -roll-pitch
+  motor3error = roll+pitch
+  motor3error = -roll+pitch
+
 function check for stabilization:
-  set motor1 to dif between
+  findError()
+  motor1destination = changeHeight + 0.1(motor1) + motor1error
+  motor2destination = changeHeight + 0.1(motor2) + motor2error
+  motor3destination = changeHeight + 0.1(motor3) + motor3error
+  motor3destination = changeHeight + 0.1(motor4) + motor4error
+  motor1value = motor1Current + motor1destination
+  motor2value = motor2Current + motor2destination
+  motor3value = motor3Current + motor3destination
+  motor4value = motor4Current + motor4destination
+
+renderMotorSpin:
+  set motor1 to motor1value
+  set motor2 to motor2value
+  set motor3 to motor3value
+  set motor4 to motor4value

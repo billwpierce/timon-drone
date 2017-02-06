@@ -1,7 +1,6 @@
 variable pitch
 variable roll
 variable yaw //not important
-CONSTANT height to motor
 
 MOTOR MAP:
 1       2
@@ -43,14 +42,14 @@ find error:
 
 function check for stabilization:
   findError()
-  motor1destination = changeHeight + 0.1(motor1) + motor1error
-  motor2destination = changeHeight + 0.1(motor2) + motor2error
-  motor3destination = changeHeight + 0.1(motor3) + motor3error
-  motor3destination = changeHeight + 0.1(motor4) + motor4error
-  motor1value = motor1Current + motor1destination
-  motor2value = motor2Current + motor2destination
-  motor3value = motor3Current + motor3destination
-  motor4value = motor4Current + motor4destination
+  motor1change = changeHeight + motor1 + motor1error
+  motor2change = changeHeight + motor2 + motor2error
+  motor3change = changeHeight + motor3 + motor3error
+  motor3change = changeHeight + motor4 + motor4error
+  motor1value = motor1Current + motor1change
+  motor2value = motor2Current + motor2change
+  motor3value = motor3Current + motor3change
+  motor4value = motor4Current + motor4change
 
 renderMotorSpin:
   set motor1 to motor1value

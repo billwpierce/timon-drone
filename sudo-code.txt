@@ -15,8 +15,9 @@ MOTOR MAP:
     |
     Negative pitch
 
-start(){
+setup(){
   Initialize stuff
+  setup
 }
 loop(){
   checkForControls()

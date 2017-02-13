@@ -113,6 +113,10 @@ void setup() {
 }
 
 void loop() {
+  //......................................//
+  //..............IMU STUFF...............//
+  //......................................//
+
   // if programming failed, don't try to do anything
   if (!dmpReady) return;
 
@@ -145,8 +149,10 @@ void loop() {
     // (this lets us immediately read more without waiting for an interrupt)
     fifoCount -= packetSize;
 
-#ifdef OUTPUT_READABLE_YAWPITCHROLL
-    // display Euler angles in degrees
+    // blink LED to indicate activity
+    blinkState = !blinkState;
+    digitalWrite(LED_PIN, blinkState);
+
     mpu.dmpGetQuaternion(&q, fifoBuffer);
     mpu.dmpGetGravity(&gravity, &q);
     mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
@@ -155,11 +161,11 @@ void loop() {
     Serial.print("  pitch: ");
     Serial.print(ypr[1] * 180 / M_PI);
     Serial.print("  roll: ");
-    Serial.println(ypr[2] * 180 / M_PI);
-#endif
+    Serial.println((ypr[2] * 180 / M_PI) * -1); //MULTIPLIED BY -1 TO BETTER FIT ROBOTMAP
 
-    // blink LED to indicate activity
-    blinkState = !blinkState;
-    digitalWrite(LED_PIN, blinkState);
+    //......................................//
+    //..............NORMAL STUFF............//
+    //......................................//
+
   }
 }

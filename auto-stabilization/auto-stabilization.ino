@@ -38,8 +38,9 @@ Servo bottomLeft;
 Servo bottomRight;
 int bottomLeftPin;
 int topRightPin;
-int topLeftPin;
+int topLeftPin = 7;
 int bottomRightPin;
+int val1; 
 
 
 void dmpDataReady() {
@@ -161,7 +162,10 @@ void loop() {
     //..............NORMAL STUFF............//
     //......................................//
 
-
+    val1 = abs(ypr[1] * 180 / M_PI);            // reads the value of the potentiometer (value between 0 and 1023)
+    Serial.println(val1);
+    val1 = map(val1, 0, 90, 90, 180);     // scale it to use it with the servo (value between 0 and 180)
+    topLeft.write(val1);   
 
   }
 }

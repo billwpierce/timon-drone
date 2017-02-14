@@ -30,11 +30,29 @@ float euler[3];         // [psi, theta, phi]    Euler angle container
 float ypr[3];           // [yaw, pitch, roll]   yaw/pitch/roll container and gravity vector
 
 volatile bool mpuInterrupt = false;     // indicates whether MPU interrupt pin has gone high
+
+
+Servo topLeft;
+Servo topRight;
+Servo bottomLeft;
+Servo bottomRight;
+int bottomLeftPin;
+int topRightPin;
+int topLeftPin;
+int bottomRightPin;
+
+
 void dmpDataReady() {
   mpuInterrupt = true;
 }
 
 void setup() {
+
+  topLeft.attach(topLeftPin);
+  topRight.attach(topRightPin);
+  bottomLeft.attach(bottomLeftPin);
+  bottomRight.attach(bottomRightPin);
+
   // join I2C bus (I2Cdev library doesn't do this automatically)
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
   Wire.begin();

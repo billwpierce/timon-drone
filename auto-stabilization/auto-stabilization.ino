@@ -48,6 +48,16 @@ void dmpDataReady() {
   mpuInterrupt = true;
 }
 
+double setSafeMotors(Servo motor, double speed) {
+  if(speed < 0){
+    motor.write(0);
+    return speed; 
+  }else{
+    motor.write(speed);  
+    return 0;
+  }
+}
+
 void setup() {
 
   topLeft.attach(topLeftPin);

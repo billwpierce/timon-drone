@@ -173,10 +173,10 @@ void loop() {
     //..............NORMAL STUFF............//
     //......................................//
 
-    val1 = abs(ypr[1] * 180 / M_PI);            // reads the value of the potentiometer (value between 0 and 1023)
-    Serial.println(val1);
-    val1 = map(val1, 0, 90, 90, 180);     // scale it to use it with the servo (value between 0 and 180)
-    topLeft.write(val1);   
+//    val1 = abs(ypr[1] * 180 / M_PI);            // reads the value of the imu
+//    Serial.println(val1);
+//    val1 = map(val1, 0, 90, 90, 180);     // scale it to use it with the servo (value between 0 and 180)
+//    topLeft.write(val1);   
 
   }
 }

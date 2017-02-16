@@ -7,6 +7,7 @@
 // is used in I2Cdev.h
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
 #include "Wire.h"
+#include <PID_v1.h>
 #endif
 MPU6050 mpu;
 #define OUTPUT_READABLE_YAWPITCHROLL

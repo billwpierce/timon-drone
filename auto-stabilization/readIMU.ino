@@ -30,6 +30,8 @@ VectorFloat gravity;    // [x, y, z]            gravity vector
 float euler[3];         // [psi, theta, phi]    Euler angle container
 float ypr[3];           // [yaw, pitch, roll]   yaw/pitch/roll container and gravity vector
 
+float yaw, pitch, roll;
+
 volatile bool mpuInterrupt = false;     // indicates whether MPU interrupt pin has gone high
 
 void dmpDataReady() {
@@ -127,11 +129,8 @@ void readIMU() {
     mpu.dmpGetQuaternion(&q, fifoBuffer);
     mpu.dmpGetGravity(&gravity, &q);
     mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-    Serial.print("yaw: ");
-    Serial.print(ypr[0] * 180 / M_PI);
-    Serial.print("  pitch: ");
-    Serial.print(ypr[1] * 180 / M_PI);
-    Serial.print("  roll: ");
-    Serial.println((ypr[2] * 180 / M_PI) * -1); //MULTIPLIED BY -1 TO BETTER FIT ROBOTMAP
+    yaw = ypr[0] * 180 / M_PI;
+    pitch = ypr[1] * 180 / M_PI;
+    roll = ( ypr[2] * 180 / M_PI) * -1; //Multipled by -1 to better fit robotmap
   }
 }

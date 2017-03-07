@@ -3,6 +3,7 @@
 void setup() {
   setupIMU();
   setupController();
+  initializeMotors();
 }
 
 void loop() {

@@ -6,6 +6,13 @@ Servo motor1;
 Servo motor2;
 int zeroValue = 50;
 
+void initializeMotors(){
+  motor1.attach(11);
+  delay(200);
+  motor2.attach(10);
+  delay(200);
+}
+
 void runMotors(int throttle, float pitch){
   float motor1Value = throttle - pitch / 2;
   float motor2Value = throttle + pitch / 2;

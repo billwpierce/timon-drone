@@ -10,17 +10,34 @@ int channel_aileron;  //roll
 int channel_elevator; //pitch
 int channel_rudder;   //yaw
 
+int throttle_pin = 2;
+int aileron_pin = 4;
+int elevator_pin = 7;
+int rudder_pin = 8;
+
 void setupController() {
-  pinMode(2, INPUT); // Set our input pins as such
-  pinMode(4, INPUT);
-  pinMode(7, INPUT);
-  pinMode(8, INPUT);
+  pinMode(throttle_pin, INPUT); // Set our input pins as such
+  pinMode(aileron_pin, INPUT);
+  pinMode(elevator_pin, INPUT);
+  pinMode(rudder_pin, INPUT);
 }
 
 void readController() {
-  channel_throttle = pulseIn(2, HIGH, 25000); //Set the variables to match the input
-  channel_aileron = pulseIn(4, HIGH, 25000);
-  channel_elevator = pulseIn(7, HIGH, 25000);
-  channel_rudder = pulseIn(8, HIGH, 25000);
+  channel_throttle = pulseIn(throttle_pin, HIGH, 25000); //Set the variables to match the input
+  channel_aileron = pulseIn(aileron_pin, HIGH, 25000);
+  channel_elevator = pulseIn(elevator_pin, HIGH, 25000);
+  channel_rudder = pulseIn(rudder_pin, HIGH, 25000);
 }
 
+int getThrottle() {
+  return channel_throttle;
+}
+int getAileron() {
+  return channel_aileron;
+}
+int getElevator() {
+  return channel_elevator;
+}
+int getRudder() {
+  return channel_rudder;
+}

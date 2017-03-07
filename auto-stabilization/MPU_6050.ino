@@ -127,3 +127,14 @@ void readIMU() {
     roll = ( ypr[2] * 180 / M_PI) * -1; //Multipled by -1 to better fit robotmap
   }
 }
+
+float getPitch(){
+  return pitch;
+}
+float getYaw(){
+  return yaw;
+}
+float getRoll(){
+  return roll;
+}
+

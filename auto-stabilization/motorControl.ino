@@ -8,7 +8,7 @@ int zeroValue = 50;
 
 void runMotors(int throttle, float pitch){
   float motor1Value = throttle - pitch/2;
-  float motor2Value = throttle + roll/2;
+  float motor2Value = throttle + pitch/2;
   motor1.write(map(motor1Value, 1151, 1908, 55, 180));
   motor2.write(map(motor2Value, 1151, 1908, 55, 180));
 }

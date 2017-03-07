@@ -4,6 +4,7 @@ boolean activated;
 
 void readyActivation(){
   activated = false;
+  Serial.println("DEACTIVATED");
 }
 
 void checkForActivation(){

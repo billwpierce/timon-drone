@@ -10,7 +10,7 @@ int channel_aileron;  //roll
 int channel_elevator; //pitch
 int channel_rudder;   //yaw
 
-int throttle_pin = 2;
+int throttle_pin = 13;
 int aileron_pin = 4;
 int elevator_pin = 7;
 int rudder_pin = 8;

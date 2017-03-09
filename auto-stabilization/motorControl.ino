@@ -4,7 +4,7 @@
 
 Servo motor1;
 Servo motor2;
-int zeroValue = 50;
+int zeroValue = 55;
 
 void initializeMotors(){
   motor1.attach(11);

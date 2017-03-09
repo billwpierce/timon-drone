@@ -5,6 +5,7 @@
 Servo motor1;
 Servo motor2;
 int zeroValue = 55;
+int safeValue = 50;
 
 void initializeMotors(){
   motor1.attach(11);
@@ -14,14 +15,14 @@ void initializeMotors(){
 }
 
 void runMotors(int throttle, float pitch){
-  float motor1Value = throttle - pitch / 2;
-  float motor2Value = throttle + pitch / 2;
-  motor1.write(map(motor1Value, 1151, 1908, 55, 180));
-  motor2.write(map(motor2Value, 1151, 1908, 55, 180));
+  float motor1Value = throttle - pitch;
+  float motor2Value = throttle + pitch;
+  motor1.write(map(motor1Value, 1151, 1908, zeroValue, 180));
+  motor2.write(map(motor2Value, 1151, 1908, zeroValue, 180));
 }
 
 void stopMotors(){
-  motor1.write(zeroValue);
-  motor2.write(zeroValue);
+  motor1.write(safeValue);
+  motor2.write(safeValue);
 }
 

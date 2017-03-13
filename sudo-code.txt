@@ -1,0 +1,59 @@
+variable pitch
+variable roll
+variable yaw //not important
+
+MOTOR MAP:
+1       2
+ \     /
+  \   /
+   \ /      <------- positive roll
+   / \
+  /   \
+ /     \
+3       4
+    ^
+    |
+    Negative pitch
+
+setup(){
+  Initialize stuff
+  setup
+}
+loop(){
+  checkForControls()
+  checkForStabilization()
+  renderMotorSpeeds()
+}
+
+function check for controls:
+  variable destinationHeight = take left-joystick y-position
+  variable changePitch = take right-joystick y-position
+  variable changeRoll = take right-joystick x-position
+  changeHeight = destinationHeight - currentHeight
+  motor1 = - changePitch + changeRoll
+  motor2 = - changePitch - changeRoll
+  motor3 = + changePitch + changeRoll
+  motor4 = + changePitch - changeRoll
+
+find error:
+  motor1error = roll-pitch
+  motor2error = -roll-pitch
+  motor3error = roll+pitch
+  motor3error = -roll+pitch
+
+function check for stabilization:
+  findError()
+  motor1change = changeHeight + motor1 + motor1error
+  motor2change = changeHeight + motor2 + motor2error
+  motor3change = changeHeight + motor3 + motor3error
+  motor3change = changeHeight + motor4 + motor4error
+  motor1value = motor1Current + motor1change
+  motor2value = motor2Current + motor2change
+  motor3value = motor3Current + motor3change
+  motor4value = motor4Current + motor4change
+
+renderMotorSpin:
+  set motor1 to motor1value
+  set motor2 to motor2value
+  set motor3 to motor3value
+  set motor4 to motor4value

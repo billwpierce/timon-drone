@@ -10,7 +10,7 @@ void loop() {
   readIMU();
   readController();
   if(getActivation()){
-    runMotors(getThrottle(), calculatePitchPID(getPitch()));
+    runMotors(getThrottle(), calculatePitchPID(getPitch()), calculateRollPID(getRoll()));
   }else{
     stopMotors();
   }

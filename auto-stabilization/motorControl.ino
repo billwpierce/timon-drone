@@ -26,3 +26,8 @@ void stopMotors(){
   motor2.write(safeValue);
 }
 
+//  Motor Map:
+//  1  2
+//   \/
+//   /\
+//  3  4

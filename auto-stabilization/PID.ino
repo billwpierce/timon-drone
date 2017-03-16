@@ -20,3 +20,21 @@ float calculatePitchPID(float pitch) {
   return pitch_pid_output;
 }
 
+float roll_pid_p = 0.0;
+float roll_pid_i = 0.0;
+float roll_pid_d = 0.0;
+
+float roll_pid_error_temp;
+float roll_pid_setpoint;
+float roll_pid_i_mem;
+float roll_pid_last_error;
+float roll_pid_output;
+
+float calculateRollPID(float roll) {
+  roll_pid_error_temp = roll - roll_pid_setpoint;
+  roll_pid_i_mem += roll_pid_i * roll_pid_error_temp;
+  roll_pid_output = roll_pid_p * roll_pid_error_temp + roll_pid_i_mem + roll_pid_d * (roll_pid_error_temp - roll_pid_last_error);
+  roll_pid_last_error = roll_pid_error_temp;
+  return roll_pid_output;
+}
+

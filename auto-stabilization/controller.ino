@@ -6,9 +6,9 @@
 */
 
 int channel_throttle; // Here's where we'll keep our channel values
-int channel_aileron;  //roll
-int channel_elevator; //pitch
-int channel_rudder;   //yaw
+int channel_aileron; 
+int channel_elevator;
+int channel_rudder;  
 
 int throttle_pin = 13;
 int aileron_pin = 4;

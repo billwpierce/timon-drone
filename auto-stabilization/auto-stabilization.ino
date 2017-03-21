@@ -1,6 +1,7 @@
 #include <Servo.h>
 
 void setup() {
+  Serial.begin(115200);
   setupIMU();
   setupController();
   initializeMotors();

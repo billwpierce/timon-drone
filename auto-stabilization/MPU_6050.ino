@@ -104,8 +104,6 @@ void setupIMU() {
 }
 void readIMU() {
   if (!dmpReady) return;
-  while (!mpuInterrupt && fifoCount < packetSize) {
-  }
   mpuInterrupt = false;
   mpuIntStatus = mpu.getIntStatus();
   fifoCount = mpu.getFIFOCount();

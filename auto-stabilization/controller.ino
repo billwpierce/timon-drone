@@ -10,10 +10,10 @@ int channel_aileron;
 int channel_elevator;
 int channel_rudder;  
 
-int throttle_pin = 13;
+int throttle_pin = 8;
 int aileron_pin = 4;
 int elevator_pin = 7;
-int rudder_pin = 8;
+int rudder_pin = 12;
 
 void setupController() {
   pinMode(throttle_pin, INPUT); // Set our input pins as such
@@ -23,10 +23,10 @@ void setupController() {
 }
 
 void readController() {
-  channel_throttle = pulseIn(throttle_pin, HIGH, 25000); //Set the variables to match the input
   channel_aileron = pulseIn(aileron_pin, HIGH, 25000);
   channel_elevator = pulseIn(elevator_pin, HIGH, 25000);
   channel_rudder = pulseIn(rudder_pin, HIGH, 25000);
+  channel_throttle = pulseIn(throttle_pin, HIGH, 25000); //Set the variables to match the input
 }
 
 int getThrottle() {

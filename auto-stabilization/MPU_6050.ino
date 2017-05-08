@@ -136,4 +136,3 @@ float getYaw(){
 float getRoll(){
   return roll;
 }
-

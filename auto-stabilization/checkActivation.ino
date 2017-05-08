@@ -8,7 +8,7 @@ void readyActivation(){
 }
 
 void checkForActivation(){
-  if (getThrottle() < 1170 && getRudder() > 1895 && activated) {
+  if (safeThrottle() < 1170 && safeRudder() > 1895 && activated) {
     enableCounter = 0;
     disableCounter += 1;
     if (disableCounter > 50) {
@@ -16,7 +16,7 @@ void checkForActivation(){
       Serial.println("DEACTIVATED");
     }
   }
-  if (getThrottle() < 1170 && getRudder() < 1142 && !activated) {
+  if (safeThrottle() < 1170 && safeRudder() < 1142 && !activated) {
     disableCounter = 0;
     enableCounter += 1;
     if (enableCounter > 50) {

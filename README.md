@@ -1,5 +1,5 @@
 # R-Drone
-R is an autostabilizing drone that, once it's finished, will hopefully be documented. Regardless of whether or not that happens, R aims to be completely open source and easy to make, while still teaching the basics of quadcopter development.
+R is an autostabilizing drone that aims to be completely open source and easy to make, while still teaching the basics of quadcopter development.
 
 ## Setup
 
